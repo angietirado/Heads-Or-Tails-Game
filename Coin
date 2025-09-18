@@ -1,0 +1,30 @@
+/**
+ *
+ * @author Angie T
+ */
+
+public class Coin {
+    private String sideUp;
+    
+    public Coin(){
+        Coin c = new Coin();
+        
+        c.toss();
+        c.getSideUp();
+    }
+    
+    public void toss(){
+        int num = (int)(Math.random() * 2 + 1);
+        if(num == 1){
+            sideUp = "Heads";
+        }
+        else{
+            sideUp = "Tails";
+        }
+    }
+    
+    public String getSideUp(){
+        return sideUp;
+    }
+    
+}
