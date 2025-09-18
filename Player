@@ -1,0 +1,66 @@
+/**
+ *
+ * @author Angie T
+ */
+import java.util.Scanner;
+public class Player {
+    private String name;
+    private String guess;
+    private int points;
+    
+    public Player(String n){
+        name = n;
+    }
+    
+    public void makeGuess(){
+        Scanner userInput = new Scanner(System.in);
+        
+        Coin c = new Coin();
+        
+        System.out.println("Will the coin land faced HEADS or TAILS? ");
+        
+        String answer = userInput.nextLine();
+        
+            if(answer.equalsIgnoreCase("HEADS") && c.getSideUp().equalsIgnoreCase("HEADS")){
+                guess = "Heads";
+                System.out.println("You guessed correct, it's Heads! ");
+                points++;
+            }
+            else if(answer.equalsIgnoreCase("TAILS") && c.getSideUp().equalsIgnoreCase("TAILS")){
+                guess = "Tails";
+                System.out.println("You guessed correct, it's tails");
+                points++;
+            }
+            else if(answer.equalsIgnoreCase("HEADS") && c.getSideUp().equalsIgnoreCase("TAILS")){
+                System.out.println("You guessed wrong! It's tails!");       
+                guess = "Heads";
+                points--;
+            }    
+        else if(answer.equalsIgnoreCase("TAILS") && c.getSideUp().equalsIgnoreCase("HEADS")){
+                System.out.println("You guessed wrong! It's heads!");   
+                guess = "Tails";
+                points--;
+            }          
+    }
+    
+    public String getName(){
+        return name;
+    }
+    
+    public String getGuess(){
+        return guess;
+    }
+    
+    public int getPoints(){
+        return points;
+    }
+    
+    public void setName(String n){
+        name = n;
+    }
+    
+    public void setPoints(int p){
+        points = p;
+    }
+    
+}
